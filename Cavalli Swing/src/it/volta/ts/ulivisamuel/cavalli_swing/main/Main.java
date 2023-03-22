@@ -1,11 +1,11 @@
-package it.volta.ts.ulivisamuel.cavalli_swing;
+package it.volta.ts.ulivisamuel.cavalli_swing.main;
 
 import javax.swing.JFrame;
 
 import it.volta.ts.ulivisamuel.cavalli_swing.views.MainView;
 
-public class Main {
-
+public class Main 
+{
 	public static void main(String[] args)
 	{
 		JFrame frame = new MainView();

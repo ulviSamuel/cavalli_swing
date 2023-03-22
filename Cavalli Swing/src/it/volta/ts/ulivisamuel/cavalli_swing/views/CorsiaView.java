@@ -5,7 +5,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import it.volta.ts.ulivisamuel.cavalli_swing.Config;
+import it.volta.ts.ulivisamuel.cavalli_swing.main.Config;
 
 @SuppressWarnings("serial")
 public class CorsiaView extends JPanel
@@ -14,6 +14,6 @@ public class CorsiaView extends JPanel
 	{
 		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 		this.add(new JLabel(cavalloImg));
-		this.add(new JLabel(Config.getInstanza().getTrack()));
+		this.add(new JLabel(new ImageIcon("img\\track.png")));
 	}
 }
