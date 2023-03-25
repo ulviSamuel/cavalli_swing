@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import it.volta.ts.ulivisamuel.cavalli_swing.main.Config;
+
 @SuppressWarnings("serial")
 public class MainView extends JFrame
 {
@@ -47,10 +49,10 @@ public class MainView extends JFrame
 	{
 		centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
-		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN1.png")));
-		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN2.png")));
-		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN3.png")));
-		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN4.png")));
+		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN1.png"), Config.getInstanza().getCavallo1()));
+		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN2.png"), Config.getInstanza().getCavallo2()));
+		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN3.png"), Config.getInstanza().getCavallo3()));
+		centerPanel.add(new CorsiaView(new ImageIcon("img\\cavalloN4.png"), Config.getInstanza().getCavallo4()));
 	}
 	
 	//---------------------------------------------------------------------------------------------

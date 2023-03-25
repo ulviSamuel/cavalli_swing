@@ -18,12 +18,13 @@ public class Fantino extends Thread
 	
 	public void run()
 	{
-		corri();
+		for(int idx = 0; idx < 10; ++idx)
+			corri();
 	}
 	
 	//---------------------------------------------------------------------------------------------
 	
-	public void corri()
+	private void corri()
 	{
 		cavallo.setPosizione(cavallo.getPosizione() + Config.getInstanza().getIncrementoCorsa());
 		pause(((int)(1 + Math.random() * 2)) * cavallo.getHandicap());
