@@ -11,9 +11,9 @@ public class Main
 	{
 		JFrame frame = new MainView();
 		frame.setVisible(true);
-		new Fantino(Config.getInstanza().getCavallo1()).run();
-		new Fantino(Config.getInstanza().getCavallo2()).run();
-		new Fantino(Config.getInstanza().getCavallo3()).run();
-		new Fantino(Config.getInstanza().getCavallo4()).run();
+		new Fantino(Config.getInstanza().getCavallo1()).start();
+		new Fantino(Config.getInstanza().getCavallo2()).start();
+		new Fantino(Config.getInstanza().getCavallo3()).start();
+		new Fantino(Config.getInstanza().getCavallo4()).start();
 	}
 }

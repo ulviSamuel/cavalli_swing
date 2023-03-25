@@ -23,8 +23,8 @@ public class CavalloView extends JLabel implements CavalloModificato
 	//---------------------------------------------------------------------------------------------
 
 	@Override
-	public void cavalloModificato(Cavallo cavallo) 
+	public void cavalloModificato() 
 	{
-		this.setBounds(cavallo.getPosizione(), this.getY(), this.getWidth(), this.getHeight());
+		this.setBounds(model.getPosizione(), this.getY(), this.getWidth(), this.getHeight());
 	}
 }

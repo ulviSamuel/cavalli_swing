@@ -61,6 +61,6 @@ public class Cavallo
 	private void avvisaAscoltatoriModifica()
 	{
 		for(CavalloModificato ascoltatore : ascoltatori)
-			ascoltatore.cavalloModificato(this);
+			ascoltatore.cavalloModificato();
 	}
 }
