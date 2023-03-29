@@ -6,6 +6,8 @@ public class Config
 {
 	private static Config    istanza          = null;
 	private        int       incrementoCorsa  = 10;
+	private        int       percInizCorsa    = 0;
+	private        int       percFineCorsa    = 690;
 	private        Cavallo   cavallo1         = new Cavallo(0, 100);
 	private        Cavallo   cavallo2         = new Cavallo(0, 100);
 	private        Cavallo   cavallo3         = new Cavallo(0, 100);
@@ -60,6 +62,16 @@ public class Config
 		return cavallo4;
 	}
 	
+	public int getPercFineCorsa()
+	{
+		return percFineCorsa;
+	}
+	
+	public int getPercInizCorsa() 
+	{
+		return percInizCorsa;
+	}
+	
 	
 
 	public void setIncrementoCorsa(int incrementoCorsa) 
@@ -85,5 +97,15 @@ public class Config
 	public void setCavallo4(Cavallo cavallo4)
 	{
 		this.cavallo4 = cavallo4;
+	}
+
+	public void setPercFineCorsa(int percFineCorsa) 
+	{
+		this.percFineCorsa = percFineCorsa;
+	}
+
+	public void setPercInizCorsa(int percInizCorsa) 
+	{
+		this.percInizCorsa = percInizCorsa;
 	}
 }

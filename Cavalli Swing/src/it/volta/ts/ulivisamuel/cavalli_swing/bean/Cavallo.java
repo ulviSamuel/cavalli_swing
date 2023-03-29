@@ -32,6 +32,8 @@ public class Cavallo
 		return handicap;
 	}
 	
+	
+	
 	public void setPosizione(int posizione) 
 	{
 		this.posizione = posizione;

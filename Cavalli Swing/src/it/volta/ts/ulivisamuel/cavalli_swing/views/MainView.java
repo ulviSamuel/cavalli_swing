@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import it.volta.ts.ulivisamuel.cavalli_swing.business.GestorePulsante;
 import it.volta.ts.ulivisamuel.cavalli_swing.main.Config;
 
 @SuppressWarnings("serial")
@@ -62,6 +63,9 @@ public class MainView extends JFrame
 		footerPanel = new JPanel();
 		footerPanel.setLayout(new BorderLayout());
 		JButton button = new JButton("Gioca");
+		GestorePulsante listener = new GestorePulsante(null);
+		button.addActionListener(listener);
+		button.setActionCommand(listener.start);
 		button.setPreferredSize(new Dimension(100, 50));
 		footerPanel.add(button, BorderLayout.EAST);
 	}
