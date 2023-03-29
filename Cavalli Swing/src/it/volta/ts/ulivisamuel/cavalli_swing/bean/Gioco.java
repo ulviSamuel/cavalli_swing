@@ -5,10 +5,10 @@ import java.util.List;
 
 import it.volta.ts.ulivisamuel.cavalli_swing.business.Fantino;
 
-public class Gioco 
+public class Gioco
 {
-	private int percPosPartenza;
-	private int percPosArrivo;
+	private int           percPosPartenza;
+	private int           percPosArrivo;
 	private List<Fantino> fantini;
 	
 	//---------------------------------------------------------------------------------------------

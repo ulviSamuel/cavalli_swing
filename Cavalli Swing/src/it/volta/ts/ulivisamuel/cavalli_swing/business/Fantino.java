@@ -6,12 +6,14 @@ import it.volta.ts.ulivisamuel.cavalli_swing.main.Config;
 public class Fantino extends Thread
 {
 	private Cavallo cavallo;
+	private boolean interrotto;
 	
 	//---------------------------------------------------------------------------------------------
 	
 	public Fantino(Cavallo cavallo)
 	{
 		this.cavallo = cavallo;
+		interrotto   = false;
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -19,6 +21,13 @@ public class Fantino extends Thread
 	public int getPosizione()
 	{
 		return cavallo.getPosizione();
+	}
+	
+	//---------------------------------------------------------------------------------------------
+	
+	public void interrompiThread()
+	{
+		interrotto = true;
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -32,11 +41,12 @@ public class Fantino extends Thread
 	
 	private void corri()
 	{
-		while(true)
+		while(!interrotto)
 		{
 			cavallo.setPosizione(cavallo.getPosizione() + Config.getInstanza().getIncrementoCorsa());
 			pause(((int)(1 + Math.random() * 2)) * cavallo.getHandicap());
 		}	
+		this.interrupt();
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -49,7 +59,8 @@ public class Fantino extends Thread
 		} 
 		catch (InterruptedException e) 
 		{
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
+            return;
 		}
 	}
 }

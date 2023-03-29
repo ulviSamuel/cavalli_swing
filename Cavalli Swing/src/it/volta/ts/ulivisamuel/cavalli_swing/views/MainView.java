@@ -1,6 +1,7 @@
 package it.volta.ts.ulivisamuel.cavalli_swing.views;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -62,10 +63,11 @@ public class MainView extends JFrame
 	{
 		footerPanel = new JPanel();
 		footerPanel.setLayout(new BorderLayout());
-		JButton button = new JButton("Gioca");
-		GestorePulsante listener = new GestorePulsante(null);
-		button.addActionListener(listener);
-		button.setActionCommand(listener.start);
+		JButton button           = new JButton("Gioca");
+		button.setForeground(Color.WHITE);
+		button.setBackground(Color.RED);
+		button.addActionListener(new GestorePulsante());
+		button.setActionCommand(GestorePulsante.startAndStop);
 		button.setPreferredSize(new Dimension(100, 50));
 		footerPanel.add(button, BorderLayout.EAST);
 	}

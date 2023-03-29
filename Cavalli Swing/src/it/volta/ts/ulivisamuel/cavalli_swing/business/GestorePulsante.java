@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 public class GestorePulsante implements ActionListener
 {
 	private GestoreGioco gestore;
-	public final static String start = "start";
+	public final static String startAndStop = "startAndStop";
 	
 	//---------------------------------------------------------------------------------------------
 	
-	public GestorePulsante(GestoreGioco gestore)
+	public GestorePulsante()
 	{
-		gestore = new GestoreGioco();
+		gestore = null;
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -23,12 +23,22 @@ public class GestorePulsante implements ActionListener
 		String com = e.getActionCommand();
 		switch (com) 
 		{
-		case start:
-			
+		case startAndStop:
+			startAndStop();
 			break;
 
 		default:
 			break;
 		}
+	}
+	
+	//---------------------------------------------------------------------------------------------
+	
+	private void startAndStop()
+	{
+		if(gestore != null)
+			gestore.interrompiThread();
+		gestore = new GestoreGioco();
+		gestore.start();
 	}
 }

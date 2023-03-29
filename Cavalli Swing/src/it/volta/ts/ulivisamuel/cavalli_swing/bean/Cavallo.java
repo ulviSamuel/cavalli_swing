@@ -7,8 +7,8 @@ import it.volta.ts.ulivisamuel.cavalli_swing.interfaces.CavalloModificato;
 
 public class Cavallo 
 {
-	private int posizione;
-	private int handicap;
+	private int                     posizione;
+	private int                     handicap;
 	private List<CavalloModificato> ascoltatori;
 	
 	//---------------------------------------------------------------------------------------------

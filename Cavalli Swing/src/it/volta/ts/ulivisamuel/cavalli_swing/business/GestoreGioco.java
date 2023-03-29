@@ -7,7 +7,8 @@ import it.volta.ts.ulivisamuel.cavalli_swing.main.Config;
 
 public class GestoreGioco extends Thread
 {
-	private Gioco gioco;
+	private Gioco   gioco;
+	private boolean interrotto;
 	
 	//---------------------------------------------------------------------------------------------
 	
@@ -15,10 +16,24 @@ public class GestoreGioco extends Thread
 	{
 		this.setPriority(Thread.MAX_PRIORITY);
 		gioco = new Gioco(Config.getInstanza().getPercInizCorsa(), Config.getInstanza().getPercFineCorsa());
-		gioco.addFantino(new Fantino(Config.getInstanza().getCavallo1()));
-		gioco.addFantino(new Fantino(Config.getInstanza().getCavallo2()));
-		gioco.addFantino(new Fantino(Config.getInstanza().getCavallo3()));
-		gioco.addFantino(new Fantino(Config.getInstanza().getCavallo4()));
+		Config istanza = Config.getInstanza();
+		istanza.getCavallo1().setPosizione(0);
+		istanza.getCavallo2().setPosizione(0);
+		istanza.getCavallo3().setPosizione(0);
+		istanza.getCavallo4().setPosizione(0);
+		gioco.addFantino(new Fantino(istanza.getCavallo1()));
+		gioco.addFantino(new Fantino(istanza.getCavallo2()));
+		gioco.addFantino(new Fantino(istanza.getCavallo3()));
+		gioco.addFantino(new Fantino(istanza.getCavallo4()));
+		interrotto = false;
+	}
+	
+	//---------------------------------------------------------------------------------------------
+	
+	public void interrompiThread()
+	{
+		interrotto = true;
+		fermaCavalli(gioco.getFantini());
 	}
 	
 	//---------------------------------------------------------------------------------------------
@@ -42,15 +57,14 @@ public class GestoreGioco extends Thread
 	
 	private void verificaVincita(List<Fantino> fantini)
 	{
-		boolean vincitoreTrovato = false;
-		while(!vincitoreTrovato)
+		while(!interrotto)
 		{
 			fantini = gioco.getFantini();
 			for(Fantino fantino : fantini)
 			{
 				if(fantino.getPosizione() >= gioco.getPercPosArrivo())
 				{
-					vincitoreTrovato = true;
+					interrotto = true;
 					fermaCavalli(fantini);
 				}
 			}
@@ -68,7 +82,8 @@ public class GestoreGioco extends Thread
 		} 
 		catch (InterruptedException e) 
 		{
-			e.printStackTrace();
+			Thread.currentThread().interrupt();
+            return;
 		}
 	}
 	
@@ -77,7 +92,7 @@ public class GestoreGioco extends Thread
 	private void fermaCavalli(List<Fantino> fantini)
 	{
 		for(Fantino fantino : fantini)
-			fantino.stop();
-		this.stop();
+			fantino.interrompiThread();
+		this.interrupt();
 	}
 }
