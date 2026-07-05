@@ -1,153 +1,138 @@
 # Cavalli Swing
 
-![Java](https://img.shields.io/badge/Java-Console%20%2F%20Swing-blue)
+![Java](https://img.shields.io/badge/Java-Desktop%20Application-blue)
 ![Stato](https://img.shields.io/badge/Stato-Progetto%20scolastico-orange)
-![Tipo](https://img.shields.io/badge/Tipo-Simulazione-lightgrey)
-![UI](https://img.shields.io/badge/Interfaccia-Swing-green)
+![UI](https://img.shields.io/badge/UI-Swing-green)
+![Architettura](https://img.shields.io/badge/Architettura-MVC%20didattica-lightgrey)
 
-**Cavalli Swing** è un progetto scolastico in **Java** che simula una corsa di cavalli, gestendo la logica della gara e la visualizzazione dell’avanzamento dei partecipanti.
+**Cavalli Swing** è un progetto Java che simula una corsa di cavalli con interfaccia grafica Swing.  
+Il codice è organizzato in package separati per modello dati, logica di business, interfacce, avvio e viste.
 
-Il progetto è stato realizzato con finalità didattiche per applicare concetti di programmazione orientata agli oggetti, gestione degli eventi e organizzazione di un’applicazione desktop Java.
-
----
-
-## Indice
-
-- [Descrizione](#descrizione)
-- [Funzionalità](#funzionalità)
-- [Tecnologie utilizzate](#tecnologie-utilizzate)
-- [Struttura del progetto](#struttura-del-progetto)
-- [Architettura logica](#architettura-logica)
-- [Esecuzione del progetto](#esecuzione-del-progetto)
-- [Obiettivi didattici](#obiettivi-didattici)
-- [Possibili miglioramenti futuri](#possibili-miglioramenti-futuri)
-- [Autore](#autore)
-- [Licenza](#licenza)
+Repository: [ulviSamuel/cavalli_swing](https://github.com/ulviSamuel/cavalli_swing)
 
 ---
 
 ## Descrizione
 
-L'obiettivo del progetto è simulare una corsa di cavalli in modo semplice e chiaro.
+Il progetto implementa una simulazione di gara in cui più cavalli avanzano lungo una pista fino alla determinazione del vincitore.
 
-L’applicazione si occupa di:
+La struttura reale del sorgente mostra una separazione chiara delle responsabilità:
 
-- inizializzare i cavalli in gara;
-- aggiornare l’avanzamento durante la simulazione;
-- mostrare l’andamento della corsa;
-- determinare il vincitore finale.
-
-A seconda dell’implementazione corrente del repository, la simulazione può essere visualizzata tramite console, interfaccia Swing, oppure entrambe.
+- `bean` per gli oggetti dati;
+- `business` per la logica applicativa;
+- `interfaces` per i contratti;
+- `views` per la parte grafica Swing;
+- `main` per l’avvio del programma.
 
 ---
 
-## Funzionalità
+## Funzionalità principali
 
-Il programma permette di gestire le operazioni principali di una corsa simulata:
+- avvio della simulazione di corsa;
+- gestione concorrenti (cavalli) e stato gara;
+- aggiornamento avanzamento durante la corsa;
+- visualizzazione della simulazione tramite GUI Swing;
+- determinazione del vincitore finale.
 
-- avvio della gara;
-- avanzamento progressivo dei cavalli;
-- aggiornamento dello stato della corsa;
-- visualizzazione dei risultati;
-- identificazione del cavallo vincitore.
+---
+
+## Struttura reale del progetto
+
+```text
+cavalli_swing/
+│
+├── Cavalli Swing/
+│   ├── src/
+│   │   └── it/volta/ts/ulivisamuel/cavalli_swing/
+│   │       ├── bean/
+│   │       ├── business/
+│   │       ├── interfaces/
+│   │       ├── main/
+│   │       └── views/
+│   │
+│   ├── img/
+│   ├── .classpath
+│   ├── .project
+│   └── .settings/
+│
+└── README.md
+```
+
+---
+
+## Architettura
+
+Impostazione didattica a layer:
+
+- **Bean (Model):** classi dati usate nella simulazione (es. cavallo, stato, risultati).
+- **Business:** regole della corsa (avanzamento, controllo fine gara, vincitore).
+- **Interfaces:** astrazioni/contratti tra componenti.
+- **Views:** schermate Swing e aggiornamento grafico.
+- **Main:** entry point applicativo.
+
+Questa organizzazione rende il progetto più leggibile e facile da estendere.
 
 ---
 
 ## Tecnologie utilizzate
 
-- **Java**
-- **Programmazione orientata agli oggetti (OOP)**
-- **Java Swing** (per eventuale interfaccia grafica)
-- **Applicazione desktop/console** (in base all’implementazione)
-
----
-
-## Struttura del progetto
-
-La struttura può variare in base all’IDE e all’organizzazione dei package. In generale:
-
-```text
-cavalli_swing/
-│
-├── src/
-│   └── ... classi Java del progetto
-│
-└── README.md
-```
-
-> Se vuoi, posso generarti anche la sezione struttura **precisa al 100%** analizzando i file reali del repository.
-
----
-
-## Architettura logica
-
-Il progetto segue una divisione logica tipica delle simulazioni didattiche:
-
-- **modello**: classi che rappresentano i cavalli e lo stato della gara;
-- **logica**: metodi che regolano avanzamento, turni e condizioni di vittoria;
-- **presentazione**: output su console o GUI Swing per mostrare la corsa.
-
-Questa separazione rende il codice più leggibile, manutenibile e facilmente estendibile.
+- **Java** (100% repository)
+- **Java Swing** per la GUI desktop
+- **OOP** (incapsulamento, separazione responsabilità, modularità)
 
 ---
 
 ## Esecuzione del progetto
 
-Il progetto è scritto in Java e può essere aperto con IDE come:
+### Requisiti
 
-- IntelliJ IDEA
-- Eclipse
-- NetBeans
-- Visual Studio Code (con estensioni Java)
+- JDK 8+ (consigliato)
+- IDE Java (Eclipse/IntelliJ/NetBeans) oppure terminale
 
-### Compilazione da terminale
+### Avvio da IDE
 
-Dalla cartella principale del progetto:
+1. Importa la cartella `Cavalli Swing` come progetto Java.
+2. Individua la classe nel package `main`.
+3. Esegui la classe con metodo `public static void main(String[] args)`.
+
+### Compilazione da terminale (generica)
 
 ```bash
 javac -d out $(find . -name "*.java")
+java -cp out it.volta.ts.ulivisamuel.cavalli_swing.main.Main
 ```
 
-### Avvio
-
-Eseguire la classe principale (es. `Main`), in base al package dichiarato nel codice:
-
-```bash
-java -cp out nome.pacchetto.Main
-```
-
-> **Nota:** sostituisci `nome.pacchetto.Main` con il fully qualified name reale presente nel progetto.
+> Se la classe di avvio ha un nome diverso da `Main`, sostituisci l’ultimo comando con il fully-qualified name corretto.
 
 ---
 
 ## Obiettivi didattici
 
-Questo repository contiene un **progetto scolastico** sviluppato per esercitarsi su:
+Il progetto è utile per esercitarsi su:
 
-- classi e oggetti in Java;
-- organizzazione del codice in package;
-- separazione tra logica e interfaccia;
-- simulazione di processi dinamici;
-- documentazione tecnica su GitHub.
+- progettazione di applicazioni desktop Java;
+- separazione Model/Business/View;
+- organizzazione a package;
+- simulazioni con aggiornamento stato e output grafico.
 
 ---
 
 ## Possibili miglioramenti futuri
 
-- aggiunta di configurazioni personalizzabili (numero cavalli, velocità, lunghezza pista);
-- miglioramento grafico dell’interfaccia Swing;
-- salvataggio storico delle gare;
-- introduzione di test automatici;
-- esportazione risultati in file.
+- parametri gara configurabili (numero cavalli, lunghezza pista, velocità);
+- gestione multithreading più avanzata per animazioni concorrenti;
+- statistiche e storico gare;
+- test unitari della logica business;
+- miglioramento UI/UX grafica.
 
 ---
 
 ## Autore
 
-Progetto realizzato da **[ulviSamuel](https://github.com/ulviSamuel)**.
+Realizzato da **[ulviSamuel](https://github.com/ulviSamuel)**.
 
 ---
 
 ## Licenza
 
-Questo progetto è stato sviluppato per scopi scolastici e didattici.
+Progetto sviluppato per finalità scolastiche/didattiche.
